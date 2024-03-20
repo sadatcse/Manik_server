@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 
-const uri = "mongodb+srv://sadatcse123:yJXa1d8BZNWWxQxQ@cluster99.b9fi2ib.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://sadatcse:SPrQNonURzWlJWwj@cluster0.38szpgx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -30,8 +30,8 @@ async function run() {
 
 
 
-    app.get('/reviews', async (req, res) => {
-      const cursor = ReviewCollection.find();
+    app.get('/workout', async (req, res) => {
+      const cursor = workout.find();
       const result = await cursor.toArray();
       res.send(result);
     })
@@ -53,7 +53,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-  res.send('Courier Server is running')
+  res.send('Manik workout Server is running')
 })
 
 app.listen(port, () => {
